@@ -1,15 +1,7 @@
 import axios from 'axios';
 const APIKEY = '28463198-9651460feed0dbf9f7cb6c698';
-const params = new URLSearchParams({
-    key: APIKEY,
-    q: 'cat',
-    image_type: 'photo',
-    orientation: 'horizontal',
-    safesearch: true,
-});
 
 axios.defaults.baseURL = 'https://pixabay.com/api/';
-// axios.defaults.headers.common['key'] = APIKEY;
 
 export class GetPixabayAPI {
     constructor() { 
@@ -47,4 +39,3 @@ export class GetPixabayAPI {
         this.page = 1;
     }
 }
-
