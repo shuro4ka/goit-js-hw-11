@@ -64,6 +64,7 @@ async function onFormSubmit(e){
       const { hits, totalHits } = await getPixabayAPI.fetchImages();
       
       if(!totalHits) {
+        formRef.reset();
         return Notify.warning(
           "Sorry, there are no images matching your search query. Please try again."
         );
@@ -86,7 +87,7 @@ async function onLoadMoreBtnClick(){
     renderGallery(hits);
 
     const totalRendered = document.querySelectorAll('.photo-card').length;
-    if(totalHits === totalRendered) {
+    if(totalRendered >= totalHits) {
       Notify.info("We're sorry, but you've reached the end of search results.");
       loadMoreBtnRef.style.display = 'none';
     }
